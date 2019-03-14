@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Class-Path: svg-7.1.5.jar barcodes-7.1.5.jar hyph-7.1.5.jar io-7.1.5.j
+ ar fontawesomefx-8.9.jar bcprov-jdk15on-1.57.jar sign-7.1.5.jar font-
+ asian-7.1.5.jar slf4j-api-1.7.13.jar commons-io-2.6.jar jfoenix-8.0.8
+ .jar styled-xml-parser-7.1.5.jar kernel-7.1.5.jar layout-7.1.5.jar pd
+ fa-7.1.5.jar forms-7.1.5.jar
+Main-Class: Main
+

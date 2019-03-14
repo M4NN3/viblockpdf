@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="container" prefHeight="461.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+   <children>
+      <VBox layoutX="23.0" layoutY="40.0" prefHeight="284.0" prefWidth="443.0" spacing="20.0">
+         <children>
+            <VBox prefHeight="122.0" prefWidth="441.0" spacing="6.0">
+               <children>
+                  <Label text="Source" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="7.0">
+                     <children>
+                        <TextField fx:id="txtSourceFile" editable="false" prefHeight="27.0" prefWidth="398.0" style="-fx-border-color: #e2574c;" />
+                        <JFXButton fx:id="btnSearchFile" style="-fx-background-color: #e2574c;" text="..." textFill="WHITE">
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" />
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <Label text="Save to" />
+                  <TextField fx:id="txtDestFile" editable="false" prefHeight="25.0" prefWidth="387.0" style="-fx-border-color: e2574c;" />
+                  <JFXCheckBox fx:id="chkOpenAtEnd" checkedColor="#e2574c" selected="true" text="Open the file when finished" />
+               </children>
+            </VBox>
+            <VBox prefHeight="122.0" prefWidth="441.0" spacing="8.0">
+               <children>
+                  <Label text="Options" />
+                  <JFXCheckBox fx:id="chkUsePassword" checkedColor="#e2574c" text="Use password">
+                     <tooltip>
+                        <Tooltip text="prevents viewing the file unless you have the password">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip></JFXCheckBox>
+                  <TextField fx:id="txtPassword" editable="false" prefHeight="25.0" prefWidth="387.0" style="-fx-border-color: e2574c;" />
+                  <JFXCheckBox fx:id="chkCopyDisable" checkedColor="#e2574c" selected="true" text="Disable copy" />
+                  <JFXCheckBox fx:id="chkPrintingDisable" checkedColor="#e2574c" selected="true" text="Disable printing" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_RIGHT" layoutX="23.0" layoutY="416.0" prefHeight="39.0" prefWidth="443.0">
+         <children>
+            <Label alignment="TOP_RIGHT" text="Follow me" />
+            <HBox alignment="CENTER_RIGHT" prefHeight="56.0" prefWidth="443.0" spacing="7.0">
+               <children>
+                  <Label onMouseClicked="#openGHWebPage" text="Github">
+                     <graphic>
+                        <FontAwesomeIconView fill="#e2574c" glyphName="GITHUB" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label onMouseClicked="#openTWWebPage" text="Twitter">
+                     <graphic>
+                        <FontAwesomeIconView fill="#e2574c" glyphName="TWITTER" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label onMouseClicked="#copyMailToClipboard" text="Mail">
+                     <graphic>
+                        <FontAwesomeIconView fill="#e2574c" glyphName="ENVELOPE" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <tooltip>
+                        <Tooltip consumeAutoHidingEvents="false" contentDisplay="TOP" graphicTextGap="5.0" text="Click to copy to clipboard">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <MenuBar prefHeight="25.0" prefWidth="479.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#searchForSourceFile" text="Open file..." />
+                  <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#removeSelectedFile" text="Remove selected file" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#aboutDialog" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <VBox alignment="CENTER" layoutX="23.0" layoutY="324.0" prefHeight="72.0" prefWidth="443.0" spacing="6.0">
+         <children>
+            <JFXSpinner fx:id="spinner" prefHeight="15.0" prefWidth="5.0" />
+            <Label fx:id="lblStatus" text="Status..." />
+            <JFXButton fx:id="btnApply" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #e2574c; -fx-border-color: #e2574c;" text="APPLY" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="ARROW_RIGHT" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
